@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f4831488242f5af115bc4e7a53ab7, type: 3}
+  m_Name: CatchPlaceholder3
+  m_EditorClassIdentifier: Assembly-CSharp::Fish.FishSpecies
+  speciesId: catch-placeholder-3
+  displayName: "Samaral - Orange-spotted spinefoot"
+  isPlaceholder: 0
+  icon: {fileID: 0}
+  model: {fileID: 0}
+  rarity: 1
+  localName: "Samaral"
+  englishCommonName: "Orange-spotted spinefoot"
+  scientificName: "Siganus guttatus"
+  localNameLanguageOrRegion: "Hiligaynon, Philippines, as listed by FishBase; no Negros-specific locality verified. Shared vernacular name."
+  health: 24
+  attack: 8
+  defense: 2
+  speed: 0
+  specialAbilityName: Harbor Burst
+  specialAbilityDescription: A fictional strike with 6 bonus Attack before defense.
+  specialAbilityType: 1
+  specialAbilityPower: 6
+  habitat: "Shallow coastal waters, including seagrass and mangrove areas with brackish water."
+  description: "An oval, flattened rabbitfish with orange to bronze spots and a bright yellow patch near the rear dorsal fin."
+  educationalFact: "This species feeds on algae growing on the bottom."
+  referenceNotes: "Sources reviewed 2026-11-11. See Docs/FISH_SPECIES_REFERENCES.md for claim mapping and naming limits. Stats and abilities are fictional; rarity is gameplay frequency, not abundance or conservation status."
+  referenceUrls: "https://www.kahaku.go.jp/research/db/zoology/Fishes_of_Andaman_Sea/contents/siganidae/02.html\nhttps://www.fishbase.se/comnames/CommonNamesList.php?GenusName=Siganus&ID=4588&SpeciesName=guttatus&StockCode=4774\nhttps://www.fishbase.se/summary/Siganus-guttatus.html"

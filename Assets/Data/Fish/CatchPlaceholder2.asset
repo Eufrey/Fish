@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f4831488242f5af115bc4e7a53ab7, type: 3}
+  m_Name: CatchPlaceholder2
+  m_EditorClassIdentifier: Assembly-CSharp::Fish.FishSpecies
+  speciesId: catch-placeholder-2
+  displayName: "Asohos - Silver sillago"
+  isPlaceholder: 0
+  icon: {fileID: 0}
+  model: {fileID: 0}
+  rarity: 0
+  localName: "Asohos"
+  englishCommonName: "Silver sillago"
+  scientificName: "Sillago sihama"
+  localNameLanguageOrRegion: "Tagalog, Philippines; also documented in other Philippine languages. Not unique to this species."
+  health: 24
+  attack: 8
+  defense: 2
+  speed: 0
+  specialAbilityName: Harbor Burst
+  specialAbilityDescription: A fictional strike with 6 bonus Attack before defense.
+  specialAbilityType: 1
+  specialAbilityPower: 6
+  habitat: "Shallow beaches, sandbars, mangrove creeks and estuaries."
+  description: "An elongated coastal fish with a pale, silvery underside."
+  educationalFact: "Adults can bury themselves in sand when disturbed."
+  referenceNotes: "Sources reviewed 2026-11-11. See Docs/FISH_SPECIES_REFERENCES.md for claim mapping and naming limits. Stats and abilities are fictional; rarity is gameplay frequency, not abundance or conservation status."
+  referenceUrls: "https://www.fishbase.se/Country/CountrySpeciesSummary.php?Country=Philippines&genusname=Sillago&speciesname=sihama\nhttps://fishbase.se/ComNames/CommonNameSearchList.php?CommonName=Asohos\nhttps://www.fao.org/4/x2400e/x2400e48.pdf"

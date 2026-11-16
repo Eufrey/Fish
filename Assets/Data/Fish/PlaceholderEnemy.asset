@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f4831488242f5af115bc4e7a53ab7, type: 3}
+  m_Name: PlaceholderEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::Fish.FishSpecies
+  speciesId: placeholder-enemy
+  displayName: Placeholder Enemy (fictional)
+  isPlaceholder: 1
+  icon: {fileID: 0}
+  model: {fileID: 0}
+  rarity: 0
+  localName: 
+  englishCommonName: 
+  scientificName: 
+  localNameLanguageOrRegion: 
+  health: 16
+  attack: 6
+  defense: 1
+  speed: 0
+  specialAbilityName: Patch-Up Pulse
+  specialAbilityDescription: A fictional pulse that restores up to 8 of this fish's HP.
+  specialAbilityType: 2
+  specialAbilityPower: 8
+  habitat: 
+  description: 
+  educationalFact: 
+  referenceNotes: 
+  referenceUrls: 

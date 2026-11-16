@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f4831488242f5af115bc4e7a53ab7, type: 3}
+  m_Name: CatchPlaceholder5
+  m_EditorClassIdentifier: Assembly-CSharp::Fish.FishSpecies
+  speciesId: catch-placeholder-5
+  displayName: "Mangagat - Mangrove red snapper"
+  isPlaceholder: 0
+  icon: {fileID: 0}
+  model: {fileID: 0}
+  rarity: 2
+  localName: "Mangagat"
+  englishCommonName: "Mangrove red snapper"
+  scientificName: "Lutjanus argentimaculatus"
+  localNameLanguageOrRegion: "Philippine usage documented by NFRDI; language and Negros-specific usage not specified in that source."
+  health: 24
+  attack: 8
+  defense: 2
+  speed: 0
+  specialAbilityName: Harbor Burst
+  specialAbilityDescription: A fictional strike with 6 bonus Attack before defense.
+  specialAbilityType: 1
+  specialAbilityPower: 6
+  habitat: "Young fish use mangrove estuaries and tidal creeks; adults move to deeper reef areas."
+  description: "A reddish-brown coastal snapper that preys on fish and crustaceans."
+  educationalFact: "Mangrove red snappers feed mainly at night."
+  referenceNotes: "Sources reviewed 2026-11-11. See Docs/FISH_SPECIES_REFERENCES.md for claim mapping and naming limits. Stats and abilities are fictional; rarity is gameplay frequency, not abundance or conservation status."
+  referenceUrls: "https://fishbase.se/country/CountrySpeciesSummary.php?Country=Philippines&genusname=Lutjanus&lang=french&speciesname=argentimaculatus\nhttps://nfrdi.da.gov.ph/tpjf/etc/Common%20and%20Local%20Names%20of%20Marine%20Fishes%20of%20the%20Phils.PDF\nhttps://www.ciesm.org/atlas_preview/Lutjanusargentimaculatus.php"

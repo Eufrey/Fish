@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="FishBattleSessionChecks.cs" />
+    <Compile Include="../Assets/Scripts/FishSpecialEffect.cs" Link="FishSpecialEffect.cs" />
+    <Compile Include="../Assets/Scripts/FishBattleSession.cs" Link="FishBattleSession.cs" />
+    <Compile Include="../Assets/Scripts/FishBattleFighter.cs" Link="FishBattleFighter.cs" />
+    <Compile Include="../Assets/Scripts/FishBattleRules.cs" Link="FishBattleRules.cs" />
+  </ItemGroup>
+</Project>

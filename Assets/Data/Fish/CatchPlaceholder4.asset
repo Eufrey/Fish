@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619f4831488242f5af115bc4e7a53ab7, type: 3}
+  m_Name: CatchPlaceholder4
+  m_EditorClassIdentifier: Assembly-CSharp::Fish.FishSpecies
+  speciesId: catch-placeholder-4
+  displayName: "Kitang - Spotted scat"
+  isPlaceholder: 0
+  icon: {fileID: 0}
+  model: {fileID: 0}
+  rarity: 1
+  localName: "Kitang"
+  englishCommonName: "Spotted scat"
+  scientificName: "Scatophagus argus"
+  localNameLanguageOrRegion: "Tagalog, Philippines; Negros-specific usage not established. Vernacular names are not unique identifiers."
+  health: 24
+  attack: 8
+  defense: 2
+  speed: 0
+  specialAbilityName: Harbor Burst
+  specialAbilityDescription: A fictional strike with 6 bonus Attack before defense.
+  specialAbilityType: 1
+  specialAbilityPower: 6
+  habitat: "Sheltered bays, harbors and brackish estuaries, often near mangroves."
+  description: "A deep-bodied, flattened fish with dark spots that can become faint in large adults."
+  educationalFact: "Its varied diet includes worms, crustaceans, insects and plant material."
+  referenceNotes: "Sources reviewed 2026-11-11. See Docs/FISH_SPECIES_REFERENCES.md for claim mapping and naming limits. Stats and abilities are fictional; rarity is gameplay frequency, not abundance or conservation status."
+  referenceUrls: "https://www.fishbase.se/country/CountrySpeciesSummary.php?Country=Philippines&genusname=Scatophagus&speciesname=argus\nhttps://fishbase.se/ComNames/CommonNamesList.php?GenusName=Scatophagus&ID=4698&SpeciesName=argus&StockCode=4919\nhttps://www.fao.org/4/w6598e/W6598E06.htm"
