@@ -17,6 +17,7 @@ namespace Fish
         private bool resultSoundPlayed;
         [SerializeField] private FishCatchCatalog catalog;
         private FishSpecies chosenSpecies;
+        private FishFishingDial dial;
         public void ConfigureCatalog(FishCatchCatalog value) => catalog = value;
         public bool HasCollectionSetup => collection != null && (catalog != null ? catalog.IsValid() : catchSpecies != null);
 
@@ -42,6 +43,7 @@ namespace Fish
                 return;
             }
             FishPanelLayout.Fishing(transform, feedback, retryButton);
+            dial = GetComponentInChildren<FishFishingDial>(true);
             retryButton.onClick.AddListener(Retry);
             attempt.Begin(Time.frameCount);
             catchAdded = false; chosenSpecies = null; resultSoundPlayed = false;
@@ -93,6 +95,7 @@ namespace Fish
             Vector2 anchor = new Vector2(attempt.Position, 0.5f);
             indicator.anchorMin = indicator.anchorMax = anchor;
             indicator.anchoredPosition = Vector2.zero;
+            if (dial != null) dial.ShowPosition(attempt.Position);
             bool resolved = attempt.State == FishTimingAttempt.AttemptState.Success ||
                 attempt.State == FishTimingAttempt.AttemptState.Failure;
             retryButton.gameObject.SetActive(resolved);
@@ -113,7 +116,7 @@ namespace Fish
             }
             else
             {
-                feedback.text = "Press Space when the white indicator is inside the green zone.";
+                feedback.text = "Hit the green zone.\nSpace to catch  /  Esc to leave";
                 feedback.color = Color.white;
             }
         }

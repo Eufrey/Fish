@@ -61,7 +61,7 @@ namespace Fish
             if (encyclopediaView == null)
                 encyclopediaView = new FishEncyclopediaView(panel, contents, closeButton, collection, catalog);
             explorationHint.text = catalog != null ? "C: Collection   N: Encyclopedia" : "C: Collection";
-            explorationHint.fontSize = 20;
+            explorationHint.fontSize = 17;
             explorationHint.rectTransform.sizeDelta = new Vector2(400, 34);
             closeButton.onClick.AddListener(ClosePanel);
         }
@@ -157,6 +157,3 @@ namespace Fish
         }
     }
 }
-
-
-

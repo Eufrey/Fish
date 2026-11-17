@@ -57,7 +57,7 @@ namespace Fish
             EnsureSpecialUI();
             FishPanelLayout.Battle(transform, feedback, specialInfo, attack, defend, specialAbility, retry, returnToBeach);
             FishUITheme.Apply(gameObject);
-            result.fontSize = 22;
+            result.fontSize = 32;
             result.rectTransform.sizeDelta = new Vector2(1150, 56);
             result.rectTransform.anchoredPosition = new Vector2(0, 300);
             var title = transform.Find("Title"); if (title != null) title.gameObject.SetActive(false);
@@ -404,9 +404,3 @@ namespace Fish
         }
     }
 }
-
-
-
-
-
-

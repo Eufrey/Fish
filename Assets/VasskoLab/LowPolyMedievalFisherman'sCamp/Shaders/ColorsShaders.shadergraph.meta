@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 1c2e5322bee59d9468db43b6bf8d6363
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 414808
+  packageName: Low Poly 3D Medieval Fisherman`s Camp
+  packageVersion: 1.0
+  assetPath: Assets/VasskoLab/LowPolyMedievalFisherman'sCamp/Shaders/ColorsShaders.shadergraph
+  uploadId: 1036156

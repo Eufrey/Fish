@@ -179,7 +179,7 @@ namespace Fish
             canvas.gameObject.AddComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;canvas.GetComponent<Canvas>().sortingOrder=100;
             canvas.gameObject.AddComponent<CanvasScaler>();canvas.gameObject.AddComponent<GraphicRaycaster>();
             hint=Text("Pause hint",canvas,"P: Pause / Volume",Vector2.zero,new Vector2(350,34));
-            hint.rectTransform.anchorMin=hint.rectTransform.anchorMax=new Vector2(1,1);hint.rectTransform.pivot=new Vector2(1,1);hint.rectTransform.anchoredPosition=new Vector2(-28,-124);hint.fontSize=20;hint.alignment=TextAnchor.MiddleRight;
+            hint.rectTransform.anchorMin=hint.rectTransform.anchorMax=new Vector2(1,1);hint.rectTransform.pivot=new Vector2(1,1);hint.rectTransform.anchoredPosition=new Vector2(-28,-96);hint.fontSize=17;hint.alignment=TextAnchor.MiddleRight;
             var panel=Rect("Pause Panel",canvas,Vector2.zero,Vector2.one,Vector2.zero,Vector2.zero);pausePanel=panel.gameObject;
             panel.gameObject.AddComponent<Image>().color=FishUITheme.Background;
             Text("Title",panel,"Paused",new Vector2(0,170),new Vector2(900,60)).fontSize = 32;
@@ -210,5 +210,3 @@ namespace Fish
         }
     }
 }
-
-

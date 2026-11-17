@@ -9,17 +9,21 @@ namespace Fish
             RectTransform rect = text.rectTransform;
             rect.anchorMin = rect.anchorMax = Vector2.one;
             rect.pivot = Vector2.one;
-            rect.anchoredPosition = new Vector2(-28, -28 - row * 48);
-            rect.sizeDelta = new Vector2(280, 34);
+            rect.anchoredPosition = new Vector2(-28, -24 - row * 36);
+            rect.sizeDelta = new Vector2(240, 28);
             text.alignment = TextAnchor.MiddleRight;
+            text.fontSize = 17; text.fontStyle = FontStyle.Bold;
         }
         public static void Story(Text objective, Text notice)
         {
             var root = objective.transform.parent as RectTransform;
             root.anchorMin = Vector2.zero; root.anchorMax = Vector2.one;
             root.offsetMin = root.offsetMax = Vector2.zero;
-            Place(objective, 28, 48);
-            Place(notice, 90, 130);
+            Place(objective, 24, 64);
+            objective.fontSize = 30; objective.fontStyle = FontStyle.Bold;
+            objective.color = FishUITheme.Gold;
+            Place(notice, 100, 100);
+            notice.fontSize = 20;
         }
         private static void Place(Text text, float top, float height)
         {
