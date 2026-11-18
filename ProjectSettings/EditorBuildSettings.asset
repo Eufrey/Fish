@@ -11,5 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FishBattle.unity
     guid: 281b4f9f4aecfd7418d57b940939eeb2
+  - enabled: 1
+    path: Assets/Scenes/Coastal.unity
+    guid: 19c598bccbada2844a2c5bb0aa0cc63d
   m_configObjects:
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

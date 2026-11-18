@@ -8,6 +8,7 @@ namespace Fish
     {
         public static void Fishing(Transform root, Text feedback, Button retry)
         {
+            if (FishFigmaFishing.Build(root, feedback, retry) != null) return;
             if (root.Find("Coastal Fishing Layout") != null) return;
             // Find old saved layouts too, retaining the same controls and listeners.
             Transform title = Find(root, "Title"), instructions = Find(root, "Instructions");
@@ -122,6 +123,8 @@ namespace Fish
             {
                 Size(button.transform, 72);
                 button.GetComponentInChildren<Text>(true).fontSize = 30;
+                string art = button.name == "Defend" ? "6:79" : button.name == "Special Ability" ? "6:83" : "6:75";
+                FishFigmaUI.ButtonArt(button, art);
             }
         }
 

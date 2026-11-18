@@ -60,6 +60,7 @@ namespace Fish
             result.fontSize = 32;
             result.rectTransform.sizeDelta = new Vector2(1150, 56);
             result.rectTransform.anchoredPosition = new Vector2(0, 300);
+            FishFigmaBattleUI.Apply(transform, result, attack, defend, specialAbility);
             var title = transform.Find("Title"); if (title != null) title.gameObject.SetActive(false);
             attack.onClick.AddListener(Attack);
             defend.onClick.AddListener(Defend);

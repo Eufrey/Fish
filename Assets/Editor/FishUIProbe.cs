@@ -23,8 +23,8 @@ namespace Fish.Editor
             var retry = (Button)fields.FindProperty("retryButton").objectReferenceValue;
             FishPanelLayout.Fishing(minigame.transform, feedback, retry);
             FishPanelLayout.Fishing(minigame.transform, feedback, retry);
-            var layout = minigame.transform.Find("Coastal Fishing Layout");
-            if (minigame.GetComponentsInChildren<FishFishingDial>(true).Length != 1) throw new Exception("Duplicate dial");
+            var layout = (RectTransform)minigame.transform;
+            if (minigame.GetComponentsInChildren<FishFigmaFishing>(true).Length != 1) throw new Exception("Duplicate imported view");
             foreach (var canvas in transforms.Select(t => t.GetComponent<Canvas>()).Where(c => c != null)) canvas.gameObject.SetActive(false);
             var activeCanvas = minigame.GetComponentInParent<Canvas>(true);
             for (Transform t = minigame.transform; t != null; t = t.parent) t.gameObject.SetActive(true);
@@ -36,7 +36,7 @@ namespace Fish.Editor
             activeCanvas.worldCamera = camera;
             activeCanvas.planeDistance = 1;
             foreach (var text in activeCanvas.GetComponentsInChildren<Text>(true)) text.font.RequestCharactersInTexture(text.text, text.fontSize, text.fontStyle);
-            minigame.GetComponentInChildren<FishFishingDial>().ShowPosition(.7f);
+            minigame.GetComponent<FishFigmaFishing>().Show(.7f);
             feedback.text = "Hit the green zone.\nSpace to catch / Esc to leave";
             Directory.CreateDirectory("Logs/UIProbe");
             foreach (int width in new[] { 1280, 1920, 800 })

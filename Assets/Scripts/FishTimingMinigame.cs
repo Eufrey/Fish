@@ -18,6 +18,9 @@ namespace Fish
         [SerializeField] private FishCatchCatalog catalog;
         private FishSpecies chosenSpecies;
         private FishFishingDial dial;
+        private FishFigmaFishing figmaView;
+        private bool catchRequested;
+        public void RequestCatch() => catchRequested = true;
         public void ConfigureCatalog(FishCatchCatalog value) => catalog = value;
         public bool HasCollectionSetup => collection != null && (catalog != null ? catalog.IsValid() : catchSpecies != null);
 
@@ -44,6 +47,7 @@ namespace Fish
             }
             FishPanelLayout.Fishing(transform, feedback, retryButton);
             dial = GetComponentInChildren<FishFishingDial>(true);
+            figmaView = GetComponent<FishFigmaFishing>(); catchRequested = false;
             retryButton.onClick.AddListener(Retry);
             attempt.Begin(Time.frameCount);
             catchAdded = false; chosenSpecies = null; resultSoundPlayed = false;
@@ -60,8 +64,9 @@ namespace Fish
             // The spot owns closing; cancellation wins over a simultaneous catch press.
             if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame) return;
             attempt.Tick(Time.unscaledDeltaTime, Time.frameCount,
-                keyboard != null && keyboard.spaceKey.wasPressedThisFrame,
+                catchRequested || (keyboard != null && keyboard.spaceKey.wasPressedThisFrame),
                 keyboard != null && keyboard.spaceKey.isPressed);
+            catchRequested = false;
             if (!resultSoundPlayed && (attempt.State == FishTimingAttempt.AttemptState.Success || attempt.State == FishTimingAttempt.AttemptState.Failure))
             {
                 resultSoundPlayed = true;
@@ -96,6 +101,7 @@ namespace Fish
             indicator.anchorMin = indicator.anchorMax = anchor;
             indicator.anchoredPosition = Vector2.zero;
             if (dial != null) dial.ShowPosition(attempt.Position);
+            if (figmaView != null) figmaView.Show(attempt.Position);
             bool resolved = attempt.State == FishTimingAttempt.AttemptState.Success ||
                 attempt.State == FishTimingAttempt.AttemptState.Failure;
             retryButton.gameObject.SetActive(resolved);
@@ -119,6 +125,7 @@ namespace Fish
                 feedback.text = "Hit the green zone.\nSpace to catch  /  Esc to leave";
                 feedback.color = Color.white;
             }
+            if (figmaView != null) figmaView.Result(resolved, attempt.State == FishTimingAttempt.AttemptState.Success);
         }
 
         private void OnDisable()
@@ -129,5 +136,3 @@ namespace Fish
         }
     }
 }
-
-

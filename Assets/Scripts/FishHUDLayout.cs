@@ -22,8 +22,9 @@ namespace Fish
             Place(objective, 24, 64);
             objective.fontSize = 30; objective.fontStyle = FontStyle.Bold;
             objective.color = FishUITheme.Gold;
-            Place(notice, 100, 100);
+            Place(notice, 144, 100);
             notice.fontSize = 20;
+            FishFigmaHUD.Build(objective);
         }
         private static void Place(Text text, float top, float height)
         {
