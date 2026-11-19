@@ -11,9 +11,11 @@ namespace Fish
         [SerializeField] private float moveSpeed = 4f;
         [SerializeField] private float turnSpeed = 540f;
         [SerializeField] private float gravity = -20f;
+        [SerializeField] private float jumpHeight = 1.2f;
 
         private CharacterController controller;
         private InputAction move;
+        private InputAction jump;
         private float verticalSpeed;
         private int skipInputFrame = -1;
         public bool ExplorationInputEnabled { get; private set; } = true;
@@ -48,28 +50,34 @@ namespace Fish
         private void OnEnable()
         {
             InputAction moveSource = inputActions != null ? inputActions.FindAction("Player/Move") : null;
-            if (moveSource == null || viewCamera == null)
+            InputAction jumpSource = inputActions != null ? inputActions.FindAction("Player/Jump") : null;
+            if (moveSource == null || jumpSource == null || viewCamera == null)
             {
-                Debug.LogError("Exploration needs the Player/Move action and a camera reference.", this);
+                Debug.LogError("Exploration needs the Player/Move and Player/Jump actions and a camera reference.", this);
                 enabled = false;
                 return;
             }
 
             // Own only this action; do not enable or disable the shared project asset.
             move = moveSource.Clone();
+            jump = jumpSource.Clone();
             move.Enable();
+            jump.Enable();
         }
 
         private void OnDisable()
         {
             move?.Dispose();
             move = null;
+            jump?.Dispose();
+            jump = null;
             verticalSpeed = 0f;
         }
 
         private void Update()
         {
-            Vector2 input = ExplorationInputEnabled && Time.frameCount != skipInputFrame && Cursor.lockState == CursorLockMode.Locked
+            bool canExplore = ExplorationInputEnabled && Time.frameCount != skipInputFrame && Cursor.lockState == CursorLockMode.Locked && Application.isFocused;
+            Vector2 input = canExplore
                 ? Vector2.ClampMagnitude(move.ReadValue<Vector2>(), 1f)
                 : Vector2.zero;
 
@@ -86,6 +94,9 @@ namespace Fish
 
             if (controller.isGrounded && verticalSpeed < 0f)
                 verticalSpeed = -2f;
+
+            if (canExplore && controller.isGrounded && jump.WasPressedThisFrame())
+                verticalSpeed = Mathf.Sqrt(2f * Mathf.Max(0f, jumpHeight) * Mathf.Max(0f, -gravity));
 
             verticalSpeed = Mathf.Max(verticalSpeed + gravity * Time.deltaTime, -30f);
             controller.Move((direction * moveSpeed + Vector3.up * verticalSpeed) * Time.deltaTime);

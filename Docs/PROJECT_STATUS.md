@@ -298,3 +298,44 @@ Details/checklists: `Docs/Milestone_1A_Setup.md` through `Docs/Milestone_3C_Setu
 - Actual verification in the running Coastal Editor: compilation status reports no failure, manifest loads, one EventSystem exists and Input System pointer/click references are assigned. Repeated disposable-preview setup reuses one fishing view. Rendered fishing at 1280x720, 1920x1080 and 800x450; visually reviewed 1280 and 800 after fixing text wrapping. Captures are Logs/FigmaImport/fishing-{width}.png. All 30 timing-attempt checks passed via dotnet build Tests/FishTimingAttemptChecks.csproj --no-restore -t:Rebuild -o Logs/UIImport18/Timing followed by dotnet Logs/UIImport18/Timing/FishTimingAttemptChecks.dll. git diff --check passed.
 - Setup: open Coastal and restart Play after compilation. Import applies through existing runtime adapters; no scene rebuild or new package setup. FISH! > Validate Imported Figma UI repeats isolated three-size capture. Current scene references remain in use.
 - Manual acceptance remains for HUD/progress visibility during actual story/menu transitions, physical pointer/keyboard navigation, successful/missed/cancelled catches, repeated reopening, and battle/return/save loops. Preview rendering exercises UI setup rather than the full gameplay loop. Console contains a Unity AI Assistant package domain-reload-token error, separate from the imported UI. No personal save files were used in validation.
+
+## Maya player model — 2026-11-19
+
+- Installed Assets/MayaModel.fbx under the existing PlayerCharacter in Coastal. The imported skeleton, six skinned meshes and assigned materials drive the visuals. The previous visual children are inactive. The existing CharacterController continues to drive movement independently of the Animator.
+- Added an idle pose generated from the two opposing foot contacts of the supplied walk cycle, a looping walk, and smooth transitions. The controller and clips are under Assets/Art/Characters/Player. FishPlayerAnimation.cs drives playback from grounded horizontal velocity. Setup is saved in Coastal.
+- Verified all six skin and material assignments, foot bone motion, walk looping, root motion disabled, and Idle → Walk → Idle with an isolated CharacterController in Play Mode. Unity reported zero Console errors. In-game foot contact and camera framing remain to be reviewed visually.
+
+## Updated Maya walk — 2026-11-19
+
+- UpdatedMayaModel.fbx contains an animated rig. Coastal PlayerCharacter uses the compatible hair-fixed mesh export from the local Maya files. The updated walk was mapped to all 57 skin bones and ancestors, with a resting pose derived from its foot contacts.
+- Walk plays at 1× with root motion disabled. Removed the speed multiplier. Unity sampled all six skinned meshes across the walk, validated material assignments, and passed Idle → Walk → Idle with a grounded CharacterController in Play Mode. Visual review of foot contact and camera framing remains pending.
+
+## Updated Maya model and hair — 2026-11-19
+
+- Connected Assets/MayaModelUpdated.fbx to Coastal PlayerCharacter with its six skinned meshes, materials, existing exploration controller and Animator. The original FBX hair was fully weighted to the root. Created a separate head-bound mesh asset that preserves its bind position and follows DEF-spine.006. Kept the imported FBX unchanged.
+- Rebuilt the idle pose from the supplied walk and configured the original walk to loop at 1× with root motion disabled. Unity verified mesh/material references, hair vertices following a 30-degree head rotation, and Idle → Walk → Idle with an isolated grounded CharacterController. Console reported zero errors. Visual review of hair placement, foot contact and normal traversal remains pending.
+
+## Maya airborne animation — 2026-11-19
+
+- Mapped MayaJump.fbx animation to all 223 existing rig paths and added a non-looping Jump state at 1× to Assets/Art/Characters/Player/Maya Locomotion.controller. FishPlayerAnimation.cs selects it while the CharacterController is airborne and returns to locomotion on grounding. Exploration currently has no jump input.
+- Unity verified jump and grounded transitions on a disposable model, clip settings and disabled root motion. Console reported zero errors. Normal gameplay airborne timing and visual pose remain untested. No setup command required.
+
+## Exploration jump input — 2026-11-19
+
+- FishExplorationPlayer.cs now uses the existing Player/Jump Input System action (Space) for a grounded 1.2-unit jump. Jump shares exploration, focus and cursor gating with movement, uses the existing gravity and triggers Maya's airborne animation. Fishing retains Space for catch attempts while exploration input is disabled.
+- Unity recompiled successfully and reported zero Console errors. Physical Space input, terrain landing, menu/fishing input isolation and animation timing remain to be tested in Play Mode. No scene setup required.
+
+## Maya scale — 2026-11-19
+
+- Scaled the Coastal Maya visual approximately 2.75% to target 1.55 m using Unity's one-unit-per-metre convention, aligned its feet to the PlayerCharacter origin, and set the CharacterController height to 1.55 m with its base at the origin.
+- Verified baked skinned mesh height approximately 1.556 m and foot minimum within 2 mm of the origin. Unity Console reported zero errors. Normal traversal, camera framing and collision clearance remain to be visually tested in Play Mode.
+
+## MayaJump2.0 — 2026-11-19
+
+- Replaced the existing Maya Jump clip from Assets/MayaJump2.0.fbx, retaining the current Animator transitions and root-motion setting. All 223 imported rig paths matched Maya. Non-looping playback is approximately 0.947×, based on the current 1.4 m jump height and -20 m/s² gravity, which produce approximately 0.748 s of ideal flat-ground flight.
+- Unity verified airborne and grounded Animator transitions and reported zero Console errors. Takeoff/landing poses, transitions and timing on uneven terrain still need visual Play Mode testing. No setup command required.
+
+## Maya idle animation — 2026-11-19
+
+- Replaced the generated idle pose in Assets/Art/Characters/Player/Maya Idle.anim with the supplied Assets/MayaIdle.fbx clip, looping at 1× through the existing Animator. All 223 rig paths matched.
+- Unity verified Idle → Walk → Idle and airborne → grounded transitions on a disposable model. An initial locomotion check had an outdated fixed-speed assertion; the transition check passed after removing that assertion. Console reported zero errors. Visual looping, foot contact and transitions during normal gameplay remain to be reviewed. No scene setup required.
